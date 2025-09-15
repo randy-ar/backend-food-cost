@@ -14,11 +14,11 @@ return new class extends Migration
         Schema::create('menu_costs', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('menu_id')->unsigned();
-            $table->integer('hpp_cost')->unsigned()->nullable();
-            $table->integer('overhead')->unsigned()->nullable();
-            $table->integer('total_cost')->unsigned()->nullable();
-            $table->integer('selling_price')->unsigned()->nullable();
-            $table->integer('food_cost')->unsigned()->nullable();
+            $table->float('hpp_cost')->unsigned()->nullable();
+            $table->float('overhead')->unsigned()->nullable();
+            $table->float('total_cost')->unsigned()->nullable();
+            $table->float('selling_price')->unsigned()->nullable();
+            $table->float('food_cost')->unsigned()->nullable();
             $table->timestamps();
 
             $table->foreign('menu_id')->references('id')->on('menus')->onDelete('cascade');

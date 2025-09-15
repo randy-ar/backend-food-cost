@@ -8,6 +8,10 @@ class Menu extends Model
 {
     protected $guarded = [];
     protected $softDeletes = true;
+    protected $with = [
+        'costs',
+        'ingredients'
+    ];
 
     public function costs(){
         return $this->hasOne(\App\Models\Menu\MenuCost::class);

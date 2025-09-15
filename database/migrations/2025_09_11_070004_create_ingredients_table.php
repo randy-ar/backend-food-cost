@@ -15,11 +15,11 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->bigInteger('unit_id')->unsigned();
-            $table->integer('weight')->unsigned();
-            $table->integer('price')->unsigned();
-            $table->integer('pieces')->unsigned()->nullable();
-            $table->integer('price_per_gr')->unsigned()->nullable();
-            $table->integer('price_per_pcs')->unsigned()->nullable();
+            $table->float('weight')->unsigned();
+            $table->float('price')->unsigned();
+            $table->float('pieces')->unsigned()->nullable();
+            $table->float('price_per_gr')->unsigned()->nullable();
+            $table->float('price_per_pcs')->unsigned()->nullable();
             $table->timestamps();
             $table->softDeletes();
 

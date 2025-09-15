@@ -13,6 +13,13 @@ Route::get('/login', [\App\Http\Controllers\Auth\AuthController::class, 'loginEn
 Route::middleware('auth:sanctum')->group(function() {
     Route::resource('units', App\Http\Controllers\UnitController::class);
     Route::resource('ingredients', App\Http\Controllers\IngredientController::class);
+    Route::prefix('menus')->group(function(){
+        Route::get('/', [\App\Http\Controllers\MenuController::class, 'index']);
+        Route::post('/hitung', [\App\Http\Controllers\MenuController::class, 'hitung']);
+        Route::post('/store', [\App\Http\Controllers\MenuController::class, 'store']);
+        Route::put('/update/{id}', [\App\Http\Controllers\MenuController::class, 'update']);
+        Route::delete('/destroy/{id}', [\App\Http\Controllers\MenuController::class, 'destroy']);
+    });
     Route::post('/logout', [\App\Http\Controllers\Auth\AuthController::class, 'logout']);
 });
 Route::get('/user', function (Request $request) {

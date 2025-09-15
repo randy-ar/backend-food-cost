@@ -13,12 +13,12 @@ return new class extends Migration
     {
         Schema::create('menu_ingredients', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('menu_id')->unsigned();
+            $table->bigInteger('menu_id')->unsigned()->nullable();
             $table->bigInteger('ingredient_id')->unsigned();
             $table->integer('quantity')->unsigned();
             $table->bigInteger('unit_id')->unsigned();
-            $table->integer('price_per_unit')->unsigned()->nullable();
-            $table->integer('total_price')->unsigned()->nullable();
+            $table->float('price_per_unit')->unsigned()->nullable();
+            $table->float('total_price')->unsigned()->nullable();
             $table->timestamps();
 
             $table->foreign('menu_id')->references('id')->on('menus')->onDelete('cascade');
